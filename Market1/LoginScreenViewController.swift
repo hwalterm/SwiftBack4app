@@ -73,12 +73,21 @@ class LoginScreenViewController: UIViewController {
 
     @IBAction func Signup(_ sender: UIButton) {
         let user = PFUser()
+        //create empty profile for user
+        let userProfile = PFObject(className:"UserProfile")
+        
+        
            user.username = SignupUserField.text
            user.password = SignupPasswordField.text
            let sv = UIViewController.displaySpinner(onView: self.view)
+        
            user.signUpInBackground { (success, error) in
                UIViewController.removeSpinner(spinner: sv)
                if success{
+                //if user sign up is successful associate them with the profile
+                user["Profile"] = userProfile
+            
+                user.saveInBackground()
                    self.loadHomeScreen()
                }else{
                    if let descrip = error?.localizedDescription{

@@ -1,0 +1,12 @@
+
+query Me {
+  users {
+    me {
+      objectId,
+      createdAt,
+      updatedAt,
+      username,
+      sessionToken
+    }
+  }
+}

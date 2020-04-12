@@ -10,14 +10,28 @@ import UIKit
 import Parse
 
 class ProfileViewController: UIViewController {
-    @IBOutlet weak var UsernameLabel: UILabel!
+   @IBOutlet weak var UsernameLabel: UILabel!
+   @IBOutlet weak var SkinTypeLabel: UILabel!
+    var currprofile: UserProfile?
+
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UsernameLabel.text = NSFullUserName()
+        UsernameLabel.text = PFUser.current()?.username
 
         // Do any additional setup after loading the view.
+        if PFUser.current() != nil {
+            //let currProfile = UserProfile(user: PFUser.current()!)
+            //print("curr profile.skintype" + currProfile.skinType)
+            SkinTypeLabel.text = "testest"
+            SkinTypeLabel.text = currprofile?.skinType
+            
+            
+        }
     }
     
 
@@ -43,12 +57,26 @@ class ProfileViewController: UIViewController {
       }
     
     
-    /*
+    
+    
+    
     // MARK: - Navigation
      
-   
+     func loadHomeScreen(){
+         
+         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+         let HomeViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+         HomeViewController.modalPresentationStyle = .fullScreen
+         self.present(HomeViewController, animated: true, completion: nil)
+     }
+    
      
-
+    @IBAction func HomeButtonClick(_ sender: Any) {
+        loadHomeScreen()
+    }
+    
+     
+/*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.

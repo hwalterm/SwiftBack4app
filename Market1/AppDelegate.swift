@@ -8,12 +8,27 @@
 
 import UIKit
 import Parse
+import Apollo
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
+    
+    let apollo: ApolloClient = { 
+        let configuration = URLSessionConfiguration.default
+        configuration.httpAdditionalHeaders = [
+            "X-Parse-Application-Id": "bBqOyGeTfdYzn981GAwxUFYiIxWcLYwfV32bnuZH",
+            "X-Parse-Client-Key": "EOkj5dmtqFe6Nr5Uxwwrr1mBNxKIZC9NkH7xJglt"
+        ]
+        
+        let url = URL(string: "https://parseapi.back4app.com/graphql")!
+        
+        return ApolloClient(
+            networkTransport: HTTPNetworkTransport(
+                url: url
+            )
+        )
+    }()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let configuration = ParseClientConfiguration {
             $0.applicationId = "bBqOyGeTfdYzn981GAwxUFYiIxWcLYwfV32bnuZH"
