@@ -17,7 +17,6 @@ class MainScrollView: UIScrollView {
         //Products = []
         super.init(frame: frame)
         super.isPagingEnabled = true
-        super.isPagingEnabled = true
         super.backgroundColor = .orange
         getProductList()
         setupPages()
@@ -34,10 +33,12 @@ class MainScrollView: UIScrollView {
     }
     func getProductList() {
         let query = PFQuery(className:"Products")
+        let sv = UIViewController.displaySpinner(onView: self)
         query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
             if let error = error {
                 // Log details of the failure
                 print(error.localizedDescription)
+        
                 
             } else if let objects = objects {
                 // The find succeeded.
@@ -50,6 +51,7 @@ class MainScrollView: UIScrollView {
                
             
             }
+            UIViewController.removeSpinner(spinner: sv)
         
             self.setupPages()
         
@@ -64,7 +66,7 @@ class MainScrollView: UIScrollView {
         //Products = ["Item1", "Item2", "Item3", "Item4"]
     
         let numberOfPages :Int = products.count-1
-        let pagestring : String = String(products.count)
+        let pagestring : String = ""
         let padding : CGFloat = 7
         let viewWidth = self.frame.size.width - 2 * padding
         let viewHeight = self.frame.size.height - 2 * padding
@@ -72,11 +74,12 @@ class MainScrollView: UIScrollView {
         //For debug:
         //let colors = [UIColor.blue, UIColor.green,UIColor.purple, UIColor.yellow]
         var x : CGFloat = 0
+        
         for p in products{
             let view: ProductView = ProductView(frame: CGRect(x: x + padding, y: padding, width: viewWidth, height: viewHeight) )
         
-            
             view.Product = p["ProductName"] as? String ?? pagestring
+            
             view.backgroundColor = UIColor.white
             view.setupProductView()
             //view.backgroundColor = colors[i]

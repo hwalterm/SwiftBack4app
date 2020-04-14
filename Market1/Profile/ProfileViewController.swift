@@ -9,26 +9,36 @@
 import UIKit
 import Parse
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+  
+    
    @IBOutlet weak var UsernameLabel: UILabel!
-   @IBOutlet weak var SkinTypeLabel: UILabel!
+    @IBOutlet weak var SkinTypePicker: UIPickerView!
+    @IBOutlet weak var EyeColorPicker: UIPickerView!
     var currprofile: UserProfile?
-
+    var SkinTypePickerData: [String] = [String]()
+    var EyeColorPickerData: [String] = [String]()
+  
+    
+    
     
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.SkinTypePicker.delegate = self
+        self.EyeColorPicker.delegate = self
+        SkinTypePickerData = ["Dry", "Oily", "Normal"]
+        EyeColorPickerData = ["Brown", "Green", "Blue","Hazel"]
         
         UsernameLabel.text = PFUser.current()?.username
 
         // Do any additional setup after loading the view.
         if PFUser.current() != nil {
             //let currProfile = UserProfile(user: PFUser.current()!)
-            //print("curr profile.skintype" + currProfile.skinType)
-            SkinTypeLabel.text = "testest"
-            SkinTypeLabel.text = currprofile?.skinType
+            print("curr profile.skintype" + String(currprofile!.SkinType))
+        
             
             
         }
@@ -70,11 +80,9 @@ class ProfileViewController: UIViewController {
          self.present(HomeViewController, animated: true, completion: nil)
      }
     
+    //MARK: Action
      
-    @IBAction func HomeButtonClick(_ sender: Any) {
-        loadHomeScreen()
-    }
-    
+
      
 /*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -85,6 +93,24 @@ class ProfileViewController: UIViewController {
     */
     
     // MARK: - Actions
+    
+    
+    @IBAction func HomeButtonClick(_ sender: Any) {
+        loadHomeScreen()
+    }
+    
+    
+    @IBAction func SaveProf(_ sender: Any) {
+        
+        self.currprofile?.eyeColor = EyeColorPicker.selectedRow(inComponent: 0)
+        self.currprofile?.SkinType = SkinTypePicker.selectedRow(inComponent: 0)
+        currprofile?.save()
+       
+        
+        
+        
+    }
+    
         
         @IBAction func logoutofApp(_ sender: UIButton) {
             let sv = UIViewController.displaySpinner(onView: self.view)
@@ -102,5 +128,38 @@ class ProfileViewController: UIViewController {
                   }
               }
         }
+    
+    //MARK: - PICKER DELEGATES
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+          return 1
+      }
+      
+      func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if pickerView == SkinTypePicker {
+            return SkinTypePickerData.count
+        }
+        else if pickerView == EyeColorPicker{
+            return SkinTypePickerData.count
+            
+        }
+        else{
+            return 0
+        }
+      }
+    
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if pickerView == SkinTypePicker {
+            return SkinTypePickerData[row]
+        }
+        else if pickerView == EyeColorPicker{
+            return EyeColorPickerData[row]
+
+        }
+        else{
+            return "row"
+        }
+    }
 
 }

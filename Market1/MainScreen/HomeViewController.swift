@@ -12,6 +12,7 @@ import Parse
 class HomeViewController: UIViewController  {
     //MARK: Properties
     
+    @IBOutlet weak var outerScrollView: UIView!
     
     
     
@@ -20,18 +21,26 @@ class HomeViewController: UIViewController  {
         super.viewDidLoad()
         
         
-        let scrollView : MainScrollView = MainScrollView(frame: CGRect(x: 60, y: 200,
-                                                                       width: 300, height: 300))
-        
-   //     NSLayoutConstraint.activate([scrollView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)])
-        
-        
-        view.addSubview(scrollView)
-        
-             NSLayoutConstraint.activate([scrollView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)])
+       
+
         
         
         
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let scrollView : MainScrollView = MainScrollView(frame: CGRect(x: 0, y: 0,width: outerScrollView.frame.width, height: outerScrollView.frame.height))
+        
+        outerScrollView.addSubview(scrollView)
+        
+                
+           //     NSLayoutConstraint.activate([scrollView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)])
+                
+                
+                
+                
+        //             NSLayoutConstraint.activate([scrollView.centerXAnchor.constraint(equalTo: outerScrollView.centerXAnchor)])
     }
     
     
@@ -44,31 +53,33 @@ class HomeViewController: UIViewController  {
     
     
     func loadProfileScreen(){
+        print("opening profile")
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let ProfileViewController = storyBoard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
         ProfileViewController.modalPresentationStyle = .fullScreen
         let curruser = PFUser.current()!
         let p = curruser["Profile"] as! PFObject
-        //let currProfile = UserProfile(curruser)
+        let currProfile = UserProfile(user: curruser)
         
-                p.fetchIfNeededInBackground { (object, error) in
-                   if let sk = p["SkinType"] as? String {
-                    
-                    let currprofile = UserProfile(user: curruser)
-                    currprofile.skinType = p["SkinType"] as! String
-                    ProfileViewController.currprofile = currprofile
-                    self.present(ProfileViewController, animated: true, completion: nil)
-
-                    } else if let errorString = error?.localizedDescription {
-                        print(errorString)
-                    }
-
-                    
+        p.fetchIfNeededInBackground { (object, error) in
+               if let sk = p["EyeColor"] as? Int {
+                currProfile.SkinType = p["SkinType"] as! Int
                 
-                    
+                ProfileViewController.currprofile = currProfile
+                self.present(ProfileViewController, animated: true, completion: nil)
 
-                    
-            }
+
+                   } else if let errorString = error?.localizedDescription {
+                       print(errorString)
+                   }
+                   
+               }
+        
+        
+
+                  
+
+                
         //fetch profile in background and use to initialize userProfile object
         //Call present after initialized
         
