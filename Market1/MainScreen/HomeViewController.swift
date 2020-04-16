@@ -12,13 +12,61 @@ import Parse
 class HomeViewController: UIViewController  {
     //MARK: Properties
     
-    @IBOutlet weak var outerScrollView: UIView!
+    var titleLabel: UILabel {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "UIStackView inside UIScrollView."
+        label.font = UIFont.systemFont(ofSize: 24, weight: .medium)
+        label.textColor = .black
+        label.textAlignment = .center
+        return label
+    }
+    lazy var VerticalscrollView: UIScrollView = {
+        let VerticalscrollView = UIScrollView()
+        VerticalscrollView.translatesAutoresizingMaskIntoConstraints = false
+        return VerticalscrollView
+    }()
+
+    lazy var VerticalstackView: UIStackView = {
+        let VerticalstackView = UIStackView()
+        VerticalstackView.axis = .vertical
+        VerticalstackView.distribution = UIStackView.Distribution.equalSpacing
+        VerticalstackView.spacing = 30
+        VerticalstackView.translatesAutoresizingMaskIntoConstraints = false
+        return VerticalstackView
+    }()
+
+    lazy var contentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
     
     
     
     override func viewDidLoad() {
+      
         super.viewDidLoad()
+        setupViews()
+        setupLayout()
+        
+        for i in 0...6 {
+            
+          
+            
+    
+            
+            
+            
+            
+            
+            
+            //teststackview.addArrangedSubview(titleLabel)
+            
+        }
+        
+    
         
         
        
@@ -30,11 +78,9 @@ class HomeViewController: UIViewController  {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        let scrollView : MainScrollView = MainScrollView(frame: CGRect(x: 0, y: 0,width: outerScrollView.frame.width, height: outerScrollView.frame.height))
         
-        outerScrollView.addSubview(scrollView)
-        
-                
+
+
            //     NSLayoutConstraint.activate([scrollView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)])
                 
                 
@@ -62,7 +108,7 @@ class HomeViewController: UIViewController  {
         let currProfile = UserProfile(user: curruser)
         
         p.fetchIfNeededInBackground { (object, error) in
-               if let sk = p["EyeColor"] as? Int {
+            if (p["EyeColor"] as? Int) != nil {
                 currProfile.SkinType = p["SkinType"] as! Int
                 
                 ProfileViewController.currprofile = currProfile
@@ -115,9 +161,71 @@ class HomeViewController: UIViewController  {
         loadProfileScreen()
     }
     
+
+
+
+//MARK: Setup views
+    
+    
+    private func setupViews() {
+        print("setting up view")
+        VerticalscrollView.backgroundColor = .lightGray
+        view.addSubview(VerticalscrollView)
+        VerticalscrollView.addSubview(contentView)
+        contentView.addSubview(VerticalstackView)
+        
+        
+    
+        
+
+        
+//        for i in 0...5 {
+//            let ProductscrollView : UIView = UIView(frame: CGRect(x: 0, y: 0,width: 100, height: 100))
+//            ProductscrollView.translatesAutoresizingMaskIntoConstraints = false
+//            ProductscrollView.backgroundColor = .orange
+//
+//
+//        let widthConstraint = NSLayoutConstraint(item: ProductscrollView, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 100)
+//        let heightConstraint = NSLayoutConstraint(item: ProductscrollView, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 100)
+//
+//            VerticalstackView.addConstraints([heightConstraint,widthConstraint])
+
+      // }
+        
+        
+    }
+    
+    private func setupLayout() {
+        VerticalscrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80).isActive = true
+        VerticalscrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        VerticalscrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        VerticalscrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -80).isActive = true
+        
+        
+        
+        
+        contentView.topAnchor.constraint(equalTo: VerticalscrollView.topAnchor).isActive = true
+        contentView.leadingAnchor.constraint(equalTo: VerticalscrollView.leadingAnchor).isActive = true
+        contentView.trailingAnchor.constraint(equalTo: VerticalscrollView.trailingAnchor).isActive = true
+        contentView.bottomAnchor.constraint(equalTo: VerticalscrollView.bottomAnchor).isActive = true
+        
+        contentView.widthAnchor.constraint(equalTo: VerticalscrollView.widthAnchor).isActive = true
+        
+        
+        VerticalstackView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        VerticalstackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        VerticalstackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        VerticalstackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+    }
+
+
 }
 
-//MARK: Table View
+
+
+
+ 
+
 
 
 

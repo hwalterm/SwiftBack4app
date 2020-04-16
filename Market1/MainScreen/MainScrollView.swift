@@ -11,14 +11,17 @@ import Parse
 
 class MainScrollView: UIScrollView {
     var products: [PFObject]
+    var productquery: PFQuery<PFObject>
     
     required override init(frame: CGRect){
+        self.productquery = PFQuery(className:"Products")
         products = [PFObject(className:"Products")]
         //Products = []
         super.init(frame: frame)
         super.isPagingEnabled = true
         super.backgroundColor = .orange
-        getProductList()
+    
+        getProductList(query: productquery)
         setupPages()
         
         
@@ -28,11 +31,12 @@ class MainScrollView: UIScrollView {
     
     required init?(coder: NSCoder) {
         products = [PFObject(className:"Products")]
+        self.productquery = PFQuery(className:"Products")
 
         super.init(coder: coder)
     }
-    func getProductList() {
-        let query = PFQuery(className:"Products")
+    func getProductList(query: PFQuery<PFObject>) {
+        
         let sv = UIViewController.displaySpinner(onView: self)
         query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
             if let error = error {
@@ -65,7 +69,7 @@ class MainScrollView: UIScrollView {
         
         //Products = ["Item1", "Item2", "Item3", "Item4"]
     
-        let numberOfPages :Int = products.count-1
+        var numberOfPages :Int = products.count-1
         let pagestring : String = ""
         let padding : CGFloat = 7
         let viewWidth = self.frame.size.width - 2 * padding

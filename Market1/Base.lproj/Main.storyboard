@@ -154,32 +154,25 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="Image"/>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o6d-Vj-Lcc">
-                                <rect key="frame" x="42" y="100" width="291" height="467"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="o6d-Vj-Lcc" secondAttribute="height" multiplier="241:387" id="YYY-5A-ytT"/>
-                                </constraints>
-                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rtq-yX-oMm">
+                                <rect key="frame" x="0.0" y="145" width="375" height="442"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Ohm-mk-kXy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8kR-D4-rf5"/>
-                            <constraint firstItem="o6d-Vj-Lcc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Dw6-gr-KhT"/>
-                            <constraint firstItem="o6d-Vj-Lcc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="EaA-ca-TcT"/>
+                            <constraint firstItem="Ohm-mk-kXy" firstAttribute="top" secondItem="Rtq-yX-oMm" secondAttribute="bottom" id="8zs-DU-xo8"/>
+                            <constraint firstItem="Rtq-yX-oMm" firstAttribute="top" secondItem="iRE-C8-7cS" secondAttribute="bottom" constant="75" id="Ge7-zB-Ipj"/>
                             <constraint firstItem="Ohm-mk-kXy" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="K4Y-iv-iEj"/>
                             <constraint firstItem="iRE-C8-7cS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="M97-LC-MA4"/>
-                            <constraint firstItem="o6d-Vj-Lcc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="QC7-6y-aug"/>
-                            <constraint firstItem="o6d-Vj-Lcc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="a92-8V-kVX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Rtq-yX-oMm" secondAttribute="trailing" id="Mnf-iu-kHI"/>
+                            <constraint firstItem="Rtq-yX-oMm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UbL-SV-6vg"/>
                             <constraint firstItem="Ohm-mk-kXy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="aDW-R4-oei"/>
-                            <constraint firstItem="o6d-Vj-Lcc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eh2-EK-PA7"/>
                             <constraint firstItem="iRE-C8-7cS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="wth-z6-fW6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <connections>
-                        <outlet property="outerScrollView" destination="o6d-Vj-Lcc" id="GTs-h9-DiJ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
