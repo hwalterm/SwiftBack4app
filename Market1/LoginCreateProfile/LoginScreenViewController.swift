@@ -29,8 +29,16 @@ class LoginScreenViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         let currentUser = PFUser.current()
         if currentUser != nil {
-            loadHomeScreen()
+            //loadHomeScreen()
         }
+    }
+    
+    func loadCreateProfileScreen(){
+        let storyBoard: UIStoryboard = UIStoryboard(name: "CreateProfileViewController", bundle: nil)
+        let CreateProfileViewController = storyBoard.instantiateViewController(withIdentifier: "CreateProfileViewController") as! CreateProfileViewController
+        CreateProfileViewController.modalPresentationStyle = .fullScreen
+        self.present(CreateProfileViewController, animated: true, completion: nil)
+        
     }
     
     func loadHomeScreen(){
@@ -88,7 +96,7 @@ class LoginScreenViewController: UIViewController {
                 user["Profile"] = userProfile
             
                 user.saveInBackground()
-                   self.loadHomeScreen()
+                   self.loadCreateProfileScreen()
                }else{
                    if let descrip = error?.localizedDescription{
                        self.displayErrorMessage(message: descrip)

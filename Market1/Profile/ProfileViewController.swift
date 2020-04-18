@@ -61,7 +61,7 @@ class ProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     func loadLoginScreen(){
-          let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+          let storyBoard: UIStoryboard = UIStoryboard(name: "ProfileCreation", bundle: nil)
           let viewController = storyBoard.instantiateViewController(withIdentifier: "LoginScreenViewController") as! LoginScreenViewController
           self.present(viewController, animated: true, completion: nil)
       }
