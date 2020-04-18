@@ -169,28 +169,31 @@ class HomeViewController: UIViewController  {
     
     private func setupViews() {
         print("setting up view")
-        VerticalscrollView.backgroundColor = .lightGray
+        VerticalscrollView.backgroundColor = UIColor(displayP3Red:1, green: 0, blue: 0.15, alpha: 0.3)
         view.addSubview(VerticalscrollView)
         VerticalscrollView.addSubview(contentView)
         contentView.addSubview(VerticalstackView)
+        VerticalstackView.alignment = .center
+        
         
         
     
         
 
         
-//        for i in 0...5 {
-//            let ProductscrollView : UIView = UIView(frame: CGRect(x: 0, y: 0,width: 100, height: 100))
-//            ProductscrollView.translatesAutoresizingMaskIntoConstraints = false
-//            ProductscrollView.backgroundColor = .orange
-//
-//
-//        let widthConstraint = NSLayoutConstraint(item: ProductscrollView, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 100)
-//        let heightConstraint = NSLayoutConstraint(item: ProductscrollView, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 100)
-//
-//            VerticalstackView.addConstraints([heightConstraint,widthConstraint])
+        for i in 0...5 {
+            let ProductscrollView : MainScrollView = MainScrollView(frame: CGRect(x: 0, y: 0,width: 100, height: 100))
+            ProductscrollView.translatesAutoresizingMaskIntoConstraints = false
+            ProductscrollView.backgroundColor = .darkGray
+            VerticalstackView.addArrangedSubview(ProductscrollView)
+            
 
-      // }
+        let widthConstraint = NSLayoutConstraint(item: ProductscrollView, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 400)
+        let heightConstraint = NSLayoutConstraint(item: ProductscrollView, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 300 )
+
+            VerticalstackView.addConstraints([heightConstraint,widthConstraint])
+
+       }
         
         
     }

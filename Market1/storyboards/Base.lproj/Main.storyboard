@@ -134,7 +134,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="iuE-rq-mgB" secondAttribute="bottom" id="3kr-qu-dd8"/>
                                     <constraint firstItem="DkH-9B-uus" firstAttribute="leading" secondItem="Ohm-mk-kXy" secondAttribute="leading" id="6aV-so-hKN"/>
@@ -154,20 +154,12 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="Image"/>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rtq-yX-oMm">
-                                <rect key="frame" x="0.0" y="145" width="375" height="442"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Ohm-mk-kXy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8kR-D4-rf5"/>
-                            <constraint firstItem="Ohm-mk-kXy" firstAttribute="top" secondItem="Rtq-yX-oMm" secondAttribute="bottom" id="8zs-DU-xo8"/>
-                            <constraint firstItem="Rtq-yX-oMm" firstAttribute="top" secondItem="iRE-C8-7cS" secondAttribute="bottom" constant="75" id="Ge7-zB-Ipj"/>
                             <constraint firstItem="Ohm-mk-kXy" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="K4Y-iv-iEj"/>
                             <constraint firstItem="iRE-C8-7cS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="M97-LC-MA4"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Rtq-yX-oMm" secondAttribute="trailing" id="Mnf-iu-kHI"/>
-                            <constraint firstItem="Rtq-yX-oMm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UbL-SV-6vg"/>
                             <constraint firstItem="Ohm-mk-kXy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="aDW-R4-oei"/>
                             <constraint firstItem="iRE-C8-7cS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="wth-z6-fW6"/>
                         </constraints>
@@ -227,7 +219,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="acn-zI-NI2" secondAttribute="bottom" id="AlW-Gn-Kqg"/>
                                     <constraint firstItem="acn-zI-NI2" firstAttribute="leading" secondItem="9yY-ai-Bmr" secondAttribute="leading" id="F9f-5p-8dc"/>

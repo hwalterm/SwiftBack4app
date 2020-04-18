@@ -71,7 +71,7 @@ class MainScrollView: UIScrollView {
     
         var numberOfPages :Int = products.count-1
         let pagestring : String = ""
-        let padding : CGFloat = 7
+        let padding : CGFloat = 3
         let viewWidth = self.frame.size.width - 2 * padding
         let viewHeight = self.frame.size.height - 2 * padding
         
