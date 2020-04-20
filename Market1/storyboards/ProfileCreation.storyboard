@@ -21,10 +21,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You can always update this later" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHa-T6-EG8">
-                                <rect key="frame" x="0.0" y="130" width="414" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can always update this later" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHa-T6-EG8">
+                                <rect key="frame" x="74.5" y="163.5" width="265.5" height="25.5"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MPW-2P-nUa">
+                                <rect key="frame" x="47" y="340" width="320" height="216"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Skin Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPW-K2-EG2">
+                                <rect key="frame" x="100" y="269" width="214" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -32,13 +40,25 @@
                         <color key="backgroundColor" red="1" green="0.86348250630783707" blue="0.93814038087243901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="IHa-T6-EG8" firstAttribute="centerX" secondItem="MTv-nF-RKH" secondAttribute="centerX" id="8Zm-Oj-Veu"/>
                             <constraint firstItem="Pbz-o1-qlg" firstAttribute="leading" secondItem="3cE-rf-xDa" secondAttribute="leading" id="A4m-fe-mQk"/>
+                            <constraint firstItem="yPW-K2-EG2" firstAttribute="top" secondItem="IHa-T6-EG8" secondAttribute="bottom" constant="80" id="CHf-RJ-mc3"/>
+                            <constraint firstItem="MPW-2P-nUa" firstAttribute="centerY" secondItem="MTv-nF-RKH" secondAttribute="centerY" id="Dxe-2L-Ecc"/>
                             <constraint firstItem="Pbz-o1-qlg" firstAttribute="centerX" secondItem="MTv-nF-RKH" secondAttribute="centerX" id="PHD-Ua-VGw"/>
+                            <constraint firstItem="3cE-rf-xDa" firstAttribute="trailing" secondItem="yPW-K2-EG2" secondAttribute="trailing" constant="100" id="Ph2-J0-PW2"/>
+                            <constraint firstItem="MPW-2P-nUa" firstAttribute="top" secondItem="yPW-K2-EG2" secondAttribute="bottom" constant="50" id="dbC-cZ-6w4"/>
                             <constraint firstItem="3cE-rf-xDa" firstAttribute="trailing" secondItem="Pbz-o1-qlg" secondAttribute="trailing" id="iB0-a3-PlF"/>
+                            <constraint firstItem="yPW-K2-EG2" firstAttribute="centerX" secondItem="MTv-nF-RKH" secondAttribute="centerX" id="ldF-gV-ACT"/>
+                            <constraint firstItem="yPW-K2-EG2" firstAttribute="leading" secondItem="3cE-rf-xDa" secondAttribute="leading" constant="100" id="qcX-2w-dCt"/>
+                            <constraint firstItem="MPW-2P-nUa" firstAttribute="centerX" secondItem="MTv-nF-RKH" secondAttribute="centerX" id="vXU-Du-Qrp"/>
                             <constraint firstItem="Pbz-o1-qlg" firstAttribute="top" secondItem="3cE-rf-xDa" secondAttribute="top" constant="35" id="xES-Uf-ffC"/>
+                            <constraint firstItem="yPW-K2-EG2" firstAttribute="centerX" secondItem="MTv-nF-RKH" secondAttribute="centerX" id="y0f-us-jlC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3cE-rf-xDa"/>
                     </view>
+                    <connections>
+                        <outlet property="skinTypePicker" destination="MPW-2P-nUa" id="132-eH-8FN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G99-Zw-fke" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

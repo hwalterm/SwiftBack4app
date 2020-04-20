@@ -29,7 +29,7 @@ class ProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         super.viewDidLoad()
         self.SkinTypePicker.delegate = self
         self.EyeColorPicker.delegate = self
-        SkinTypePickerData = ["Dry", "Oily", "Normal"]
+        SkinTypePickerData = ["Dry", "Oily", "Normal", "Combination"]
         EyeColorPickerData = ["Brown", "Green", "Blue","Hazel"]
         
         UsernameLabel.text = PFUser.current()?.username
