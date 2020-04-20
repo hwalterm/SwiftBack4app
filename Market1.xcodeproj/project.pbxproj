@@ -19,12 +19,14 @@
 		0239B3002409CA4A00A89EA7 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0239B2FF2409CA4A00A89EA7 /* ProductView.swift */; };
 		0250A0F924202734000ECE5E /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0250A0F824202734000ECE5E /* UserProfile.swift */; };
 		0269AAA2244B9E3700FA4DB8 /* ProfileCreation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0269AAA1244B9E3700FA4DB8 /* ProfileCreation.storyboard */; };
-		0269AAA5244BA07900FA4DB8 /* CreateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269AAA4244BA07900FA4DB8 /* CreateProfileViewController.swift */; };
+		0269AAA5244BA07900FA4DB8 /* CreateProfileSkinTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269AAA4244BA07900FA4DB8 /* CreateProfileSkinTypeViewController.swift */; };
 		027515FF24465B4700AA322A /* topMostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027515FE24465B4600AA322A /* topMostViewController.swift */; };
 		0287FAB8240611340078099C /* getUser.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0287FAB7240611340078099C /* getUser.graphql */; };
 		02D67E3A23B58F3500E9D443 /* LoginScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D67E3923B58F3500E9D443 /* LoginScreenViewController.swift */; };
 		02D67E4023B598CB00E9D443 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D67E3F23B598CB00E9D443 /* extensions.swift */; };
 		02D67E4223BECDC500E9D443 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D67E4123BECDC500E9D443 /* ProfileViewController.swift */; };
+		02FD4178244CF6E900AFE74C /* CreateProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FD4177244CF6E900AFE74C /* CreateProfilePageViewController.swift */; };
+		02FD417A244CFE7000AFE74C /* CreateProfileAcneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FD4179244CFE7000AFE74C /* CreateProfileAcneViewController.swift */; };
 		19F3BC4DB83C64946A974E17 /* Pods_Market1_Market1UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3882FD6F72599EF9F3A542D0 /* Pods_Market1_Market1UITests.framework */; };
 		8499A5BCC075316FDD3022EF /* Pods_Market1Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1BCC39D8B0BEB70837CB92C /* Pods_Market1Tests.framework */; };
 		B7E6778905489538D4126F97 /* Pods_Market1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0040526B3025DC2B8849ECE9 /* Pods_Market1.framework */; };
@@ -67,12 +69,14 @@
 		0239B2FF2409CA4A00A89EA7 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		0250A0F824202734000ECE5E /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		0269AAA1244B9E3700FA4DB8 /* ProfileCreation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileCreation.storyboard; sourceTree = "<group>"; };
-		0269AAA4244BA07900FA4DB8 /* CreateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileViewController.swift; sourceTree = "<group>"; };
+		0269AAA4244BA07900FA4DB8 /* CreateProfileSkinTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileSkinTypeViewController.swift; sourceTree = "<group>"; };
 		027515FE24465B4600AA322A /* topMostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = topMostViewController.swift; path = /Users/hershelalterman/Projects/Market1/Market1/topMostViewController.swift; sourceTree = "<absolute>"; };
 		0287FAB7240611340078099C /* getUser.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = getUser.graphql; sourceTree = "<group>"; };
 		02D67E3923B58F3500E9D443 /* LoginScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewController.swift; sourceTree = "<group>"; };
 		02D67E3F23B598CB00E9D443 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		02D67E4123BECDC500E9D443 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		02FD4177244CF6E900AFE74C /* CreateProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfilePageViewController.swift; sourceTree = "<group>"; };
+		02FD4179244CFE7000AFE74C /* CreateProfileAcneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileAcneViewController.swift; sourceTree = "<group>"; };
 		03B3E2AD2DEF1410519BE5C7 /* Pods-Market1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Market1.release.xcconfig"; path = "Target Support Files/Pods-Market1/Pods-Market1.release.xcconfig"; sourceTree = "<group>"; };
 		3882FD6F72599EF9F3A542D0 /* Pods_Market1_Market1UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Market1_Market1UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43F2D00314B14EC30FE640F1 /* Pods-Market1-Market1UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Market1-Market1UITests.release.xcconfig"; path = "Target Support Files/Pods-Market1-Market1UITests/Pods-Market1-Market1UITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -201,8 +205,10 @@
 		0269AAA3244B9FD700FA4DB8 /* LoginCreateProfile */ = {
 			isa = PBXGroup;
 			children = (
+				02FD4177244CF6E900AFE74C /* CreateProfilePageViewController.swift */,
+				02FD4179244CFE7000AFE74C /* CreateProfileAcneViewController.swift */,
+				0269AAA4244BA07900FA4DB8 /* CreateProfileSkinTypeViewController.swift */,
 				02D67E3923B58F3500E9D443 /* LoginScreenViewController.swift */,
-				0269AAA4244BA07900FA4DB8 /* CreateProfileViewController.swift */,
 			);
 			path = LoginCreateProfile;
 			sourceTree = "<group>";
@@ -492,12 +498,14 @@
 				02D67E4223BECDC500E9D443 /* ProfileViewController.swift in Sources */,
 				0239B3002409CA4A00A89EA7 /* ProductView.swift in Sources */,
 				02D67E4023B598CB00E9D443 /* extensions.swift in Sources */,
-				0269AAA5244BA07900FA4DB8 /* CreateProfileViewController.swift in Sources */,
+				0269AAA5244BA07900FA4DB8 /* CreateProfileSkinTypeViewController.swift in Sources */,
 				0238DD1823B3F3E10037A8BE /* HomeViewController.swift in Sources */,
 				0238DD1423B3F3E10037A8BE /* AppDelegate.swift in Sources */,
 				027515FF24465B4700AA322A /* topMostViewController.swift in Sources */,
 				02D67E3A23B58F3500E9D443 /* LoginScreenViewController.swift in Sources */,
 				0239B2FE24097E4A00A89EA7 /* MainScrollView.swift in Sources */,
+				02FD4178244CF6E900AFE74C /* CreateProfilePageViewController.swift in Sources */,
+				02FD417A244CFE7000AFE74C /* CreateProfileAcneViewController.swift in Sources */,
 				0238DD1623B3F3E10037A8BE /* SceneDelegate.swift in Sources */,
 				0250A0F924202734000ECE5E /* UserProfile.swift in Sources */,
 			);

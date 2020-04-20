@@ -16,6 +16,15 @@ class UserProfile {
    // var AcneProne: Int
     var SkinType: Int
     var eyeColor: Int
+    var acneProne: Int
+    var sensitiveSkin: Int
+    var antiAging: Int
+    var foundationCoverage: Float
+    var concealerCoverage: Float
+    var concealerFormulation: Int
+    var PriceRange: Int
+    var MakeupFrequency: Int
+    
     
     
     
@@ -27,6 +36,15 @@ class UserProfile {
         self.profile = p
         self.SkinType = 1
         self.eyeColor = 1
+        self.acneProne = 1
+        self.sensitiveSkin = 0
+        self.antiAging = 0
+        self.foundationCoverage = 0
+        self.concealerCoverage = 0
+        self.concealerFormulation = 0
+        self.PriceRange = 0
+        self.MakeupFrequency = 0
+        
     
 
         

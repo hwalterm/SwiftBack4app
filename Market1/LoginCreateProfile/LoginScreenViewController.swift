@@ -34,8 +34,8 @@ class LoginScreenViewController: UIViewController {
     }
     
     func loadCreateProfileScreen(){
-        let storyBoard: UIStoryboard = UIStoryboard(name: "CreateProfileViewController", bundle: nil)
-        let CreateProfileViewController = storyBoard.instantiateViewController(withIdentifier: "CreateProfileViewController") as! CreateProfileViewController
+        let storyBoard: UIStoryboard = UIStoryboard(name: "ProfileCreation", bundle: nil)
+        let CreateProfileViewController = storyBoard.instantiateViewController(withIdentifier: "CreateProfilePageViewController") as! CreateProfilePageViewController
         CreateProfileViewController.modalPresentationStyle = .fullScreen
         self.present(CreateProfileViewController, animated: true, completion: nil)
         
@@ -96,6 +96,7 @@ class LoginScreenViewController: UIViewController {
                 user["Profile"] = userProfile
             
                 user.saveInBackground()
+                print("user saved. Loading Profile Screen")
                    self.loadCreateProfileScreen()
                }else{
                    if let descrip = error?.localizedDescription{

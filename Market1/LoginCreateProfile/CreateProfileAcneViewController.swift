@@ -1,14 +1,16 @@
 //
-//  CreateProfileViewController.swift
+//  CreateProfileAcneViewController.swift
 //  Market1
 //
-//  Created by Hershel Alterman on 4/18/20.
+//  Created by Hershel Alterman on 4/19/20.
 //  Copyright © 2020 Hershel Alterman. All rights reserved.
 //
 
 import UIKit
 
-class CreateProfileViewController: UIViewController {
+class CreateProfileAcneViewController: UIViewController {
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
