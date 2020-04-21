@@ -22,17 +22,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can always update this later" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHa-T6-EG8">
-                                <rect key="frame" x="74.5" y="163.5" width="265.5" height="25.5"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="37.5" y="162.5" width="339" height="23"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="18"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MPW-2P-nUa">
                                 <rect key="frame" x="47" y="340" width="320" height="216"/>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Skin Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPW-K2-EG2">
-                                <rect key="frame" x="100" y="269" width="214" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="100" y="265.5" width="214" height="24.5"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -71,21 +71,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TSF-CC-woF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="883" y="83"/>
-        </scene>
-        <!--CreateProfileAcneViewController-->
-        <scene sceneID="NO2-OX-rXK">
-            <objects>
-                <viewController storyboardIdentifier="CreateProfileAcneViewController" title="CreateProfileAcneViewController" id="ASv-8S-KGf" customClass="CreateProfileAcneViewController" customModule="Market1" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="7hs-Dk-W9P">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="3kh-bf-HEs"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9T4-R2-ysV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="968" y="757"/>
         </scene>
         <!--Login Screen View Controller-->
         <scene sceneID="BcS-nL-JrI">
@@ -176,6 +161,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JMF-wY-hT0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-488.40579710144931" y="111.83035714285714"/>
+        </scene>
+        <!--Create Profile Acne View Controller-->
+        <scene sceneID="xe0-xs-8EK">
+            <objects>
+                <viewController storyboardIdentifier="CreateProfileAcneViewController" id="2PO-x0-XfI" customClass="CreateProfileAcneViewController" customModule="Market1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hnm-wv-nuz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9p-sO-AkM">
+                                <rect key="frame" x="0.0" y="79" width="414" height="43"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="34"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can always update this later" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vn-ry-AFB">
+                                <rect key="frame" x="37.5" y="162" width="339" height="23"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="18"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gd4-Ku-03k" userLabel="AcneTypePicker">
+                                <rect key="frame" x="47" y="340" width="320" height="216"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you have acne prone skin?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upp-Wo-G1Y">
+                                <rect key="frame" x="0.0" y="265" width="414" height="25"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.86348250630000001" blue="0.93814038089999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="upp-Wo-G1Y" firstAttribute="leading" secondItem="NxC-eQ-hwC" secondAttribute="leading" id="8tg-0y-GSg"/>
+                            <constraint firstItem="g9p-sO-AkM" firstAttribute="centerX" secondItem="Hnm-wv-nuz" secondAttribute="centerX" id="CFV-Mc-nP4"/>
+                            <constraint firstItem="2vn-ry-AFB" firstAttribute="centerX" secondItem="Hnm-wv-nuz" secondAttribute="centerX" id="D2a-Rh-7gV"/>
+                            <constraint firstItem="g9p-sO-AkM" firstAttribute="leading" secondItem="NxC-eQ-hwC" secondAttribute="leading" id="EkV-98-2kD"/>
+                            <constraint firstItem="Gd4-Ku-03k" firstAttribute="centerX" secondItem="Hnm-wv-nuz" secondAttribute="centerX" id="FVv-8S-hf9"/>
+                            <constraint firstItem="NxC-eQ-hwC" firstAttribute="trailing" secondItem="upp-Wo-G1Y" secondAttribute="trailing" id="Miz-w7-VKf"/>
+                            <constraint firstItem="Gd4-Ku-03k" firstAttribute="centerY" secondItem="Hnm-wv-nuz" secondAttribute="centerY" id="MuH-CU-3bh"/>
+                            <constraint firstItem="upp-Wo-G1Y" firstAttribute="top" secondItem="2vn-ry-AFB" secondAttribute="bottom" constant="80" id="VfM-0o-A37"/>
+                            <constraint firstItem="g9p-sO-AkM" firstAttribute="top" secondItem="NxC-eQ-hwC" secondAttribute="top" constant="35" id="djw-2C-Ax7"/>
+                            <constraint firstItem="Gd4-Ku-03k" firstAttribute="top" secondItem="upp-Wo-G1Y" secondAttribute="bottom" constant="50" id="fSe-Yc-3SW"/>
+                            <constraint firstItem="upp-Wo-G1Y" firstAttribute="centerX" secondItem="Hnm-wv-nuz" secondAttribute="centerX" id="jb5-Se-abv"/>
+                            <constraint firstItem="upp-Wo-G1Y" firstAttribute="centerX" secondItem="Hnm-wv-nuz" secondAttribute="centerX" id="pbl-nr-OGq"/>
+                            <constraint firstItem="NxC-eQ-hwC" firstAttribute="trailing" secondItem="g9p-sO-AkM" secondAttribute="trailing" id="vcq-CV-nb9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NxC-eQ-hwC"/>
+                    </view>
+                    <connections>
+                        <outlet property="AcnePicker" destination="Gd4-Ku-03k" id="Bvj-K1-ZN0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tYf-NF-YR2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="832" y="846"/>
         </scene>
     </scenes>
 </document>

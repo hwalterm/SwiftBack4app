@@ -127,9 +127,12 @@ class CreateProfilePageViewController: UIPageViewController, UIPageViewControlle
             self.currentprofile.SkinType = SkinTypeView.skintypeselection
             
             //debug
-            print("Skin Type:" + String(self.currentprofile.SkinType) + ":" + String(SkinTypeView.skintypeselection))
-            print("Number of Previous View Controllers" + String(previousViewControllers.count) )
+//            print("Skin Type:" + String(self.currentprofile.SkinType) + ":" + String(SkinTypeView.skintypeselection))
         }
+        else if let AcneTypeView = previousViewControllers[previousViewControllers.count-1]  as? CreateProfileAcneViewController {
+            self.currentprofile.acneProne = AcneTypeView.Acneselection
+                }
+        
     }
     
     
