@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0217E3BA2451E40000A4AA4D /* CreateProfileSensitiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0217E3B92451E40000A4AA4D /* CreateProfileSensitiveViewController.swift */; };
 		0238DD1423B3F3E10037A8BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0238DD1323B3F3E10037A8BE /* AppDelegate.swift */; };
 		0238DD1623B3F3E10037A8BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0238DD1523B3F3E10037A8BE /* SceneDelegate.swift */; };
 		0238DD1823B3F3E10037A8BE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0238DD1723B3F3E10037A8BE /* HomeViewController.swift */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		0040526B3025DC2B8849ECE9 /* Pods_Market1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Market1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0217E3B92451E40000A4AA4D /* CreateProfileSensitiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileSensitiveViewController.swift; sourceTree = "<group>"; };
 		0238DD1023B3F3E10037A8BE /* Market1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Market1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0238DD1323B3F3E10037A8BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0238DD1523B3F3E10037A8BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,10 +146,10 @@
 				0287FAB7240611340078099C /* getUser.graphql */,
 				0238DD1523B3F3E10037A8BE /* SceneDelegate.swift */,
 				0238DD1323B3F3E10037A8BE /* AppDelegate.swift */,
+				0269AAA3244B9FD700FA4DB8 /* LoginCreateProfile */,
 				0250A0F7242026D2000ECE5E /* Profile */,
 				0239B3012409CC2E00A89EA7 /* MainScreen */,
 				0269AAA0244B9E0800FA4DB8 /* storyboards */,
-				0269AAA3244B9FD700FA4DB8 /* LoginCreateProfile */,
 				0238DD1C23B3F3E40037A8BE /* Assets.xcassets */,
 				0238DD1E23B3F3E40037A8BE /* LaunchScreen.storyboard */,
 				0238DD2123B3F3E40037A8BE /* Info.plist */,
@@ -206,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				02FD4177244CF6E900AFE74C /* CreateProfilePageViewController.swift */,
+				0217E3B92451E40000A4AA4D /* CreateProfileSensitiveViewController.swift */,
 				02FD4179244CFE7000AFE74C /* CreateProfileAcneViewController.swift */,
 				0269AAA4244BA07900FA4DB8 /* CreateProfileSkinTypeViewController.swift */,
 				02D67E3923B58F3500E9D443 /* LoginScreenViewController.swift */,
@@ -502,6 +505,7 @@
 				0238DD1823B3F3E10037A8BE /* HomeViewController.swift in Sources */,
 				0238DD1423B3F3E10037A8BE /* AppDelegate.swift in Sources */,
 				027515FF24465B4700AA322A /* topMostViewController.swift in Sources */,
+				0217E3BA2451E40000A4AA4D /* CreateProfileSensitiveViewController.swift in Sources */,
 				02D67E3A23B58F3500E9D443 /* LoginScreenViewController.swift in Sources */,
 				0239B2FE24097E4A00A89EA7 /* MainScrollView.swift in Sources */,
 				02FD4178244CF6E900AFE74C /* CreateProfilePageViewController.swift in Sources */,

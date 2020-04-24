@@ -126,7 +126,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="1" green="0.86274509803921573" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Plk-5Z-lIk" firstAttribute="leading" secondItem="iBZ-SY-cnL" secondAttribute="leading" constant="50" id="0OK-Bv-a37"/>
                             <constraint firstItem="BP0-Hq-J2g" firstAttribute="centerX" secondItem="dlI-gm-Xo7" secondAttribute="centerX" id="1dY-Ri-JeY"/>
@@ -218,6 +218,106 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tYf-NF-YR2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="832" y="846"/>
+        </scene>
+        <!--Create Profile Sensitive View Controller-->
+        <scene sceneID="AkR-hf-RSt">
+            <objects>
+                <viewController storyboardIdentifier="CreateProfileSensitiveViewController" id="4hF-6u-xqt" customClass="CreateProfileSensitiveViewController" customModule="Market1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kIw-k0-do5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNG-9z-vLb">
+                                <rect key="frame" x="0.0" y="79" width="414" height="43"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="34"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can always update this later" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0W-cL-Noa">
+                                <rect key="frame" x="37.5" y="162" width="339" height="23"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="18"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you have sensitive skin?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79X-Y8-iPS">
+                                <rect key="frame" x="0.0" y="265" width="414" height="25"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bax-hF-Qfd">
+                                <rect key="frame" x="142" y="366" width="130" height="32"/>
+                                <segments>
+                                    <segment title="No"/>
+                                    <segment title="Yes"/>
+                                </segments>
+                                <connections>
+                                    <action selector="SensitiveSkinControlAction:" destination="4hF-6u-xqt" eventType="valueChanged" id="uby-42-X4f"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you look for anti-aging products?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EoE-dj-OWe">
+                                <rect key="frame" x="0.0" y="502" width="414" height="25"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QfJ-f8-UxF">
+                                <rect key="frame" x="142" y="603" width="130" height="32"/>
+                                <segments>
+                                    <segment title="No"/>
+                                    <segment title="Yes"/>
+                                </segments>
+                                <connections>
+                                    <action selector="AntiAgingAction:" destination="4hF-6u-xqt" eventType="valueChanged" id="os4-al-bDj"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Igj-V2-ou7">
+                                <rect key="frame" x="142" y="727" width="139" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.82853033255987618" green="0.89614622853773784" blue="0.96699744462966919" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                <state key="normal" title="Create My Profile!">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="CreateProfileClick:" destination="4hF-6u-xqt" eventType="touchUpInside" id="uj1-O2-Jeh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.86348250630000001" blue="0.93814038089999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="QfJ-f8-UxF" firstAttribute="top" secondItem="EoE-dj-OWe" secondAttribute="bottom" constant="76" id="0NZ-Fu-XPq"/>
+                            <constraint firstItem="wNG-9z-vLb" firstAttribute="leading" secondItem="TGA-ZD-LE3" secondAttribute="leading" id="2qW-ct-OhZ"/>
+                            <constraint firstItem="EoE-dj-OWe" firstAttribute="top" secondItem="bax-hF-Qfd" secondAttribute="bottom" constant="105" id="3tF-2b-tSN"/>
+                            <constraint firstItem="TGA-ZD-LE3" firstAttribute="trailing" secondItem="QfJ-f8-UxF" secondAttribute="trailing" constant="142" id="4uX-vR-Izs"/>
+                            <constraint firstItem="79X-Y8-iPS" firstAttribute="centerX" secondItem="kIw-k0-do5" secondAttribute="centerX" id="5jr-tz-kam"/>
+                            <constraint firstItem="wNG-9z-vLb" firstAttribute="centerX" secondItem="kIw-k0-do5" secondAttribute="centerX" id="6Cb-n3-S3u"/>
+                            <constraint firstItem="K0W-cL-Noa" firstAttribute="top" secondItem="wNG-9z-vLb" secondAttribute="bottom" constant="40" id="6Dz-Kv-zFu"/>
+                            <constraint firstItem="wNG-9z-vLb" firstAttribute="top" secondItem="TGA-ZD-LE3" secondAttribute="top" constant="35" id="Bx7-LG-gYy"/>
+                            <constraint firstItem="TGA-ZD-LE3" firstAttribute="trailing" secondItem="wNG-9z-vLb" secondAttribute="trailing" id="G57-OV-HA5"/>
+                            <constraint firstItem="EoE-dj-OWe" firstAttribute="trailing" secondItem="TGA-ZD-LE3" secondAttribute="trailing" id="HsJ-2F-0x7"/>
+                            <constraint firstItem="K0W-cL-Noa" firstAttribute="centerX" secondItem="kIw-k0-do5" secondAttribute="centerX" id="Jw6-AJ-m66"/>
+                            <constraint firstItem="bax-hF-Qfd" firstAttribute="top" secondItem="79X-Y8-iPS" secondAttribute="bottom" constant="76" id="Kn7-wy-PHy"/>
+                            <constraint firstItem="79X-Y8-iPS" firstAttribute="top" secondItem="K0W-cL-Noa" secondAttribute="bottom" constant="80" id="Rxn-CP-3lw"/>
+                            <constraint firstItem="TGA-ZD-LE3" firstAttribute="trailing" secondItem="bax-hF-Qfd" secondAttribute="trailing" constant="142" id="Tc3-zN-02j"/>
+                            <constraint firstItem="bax-hF-Qfd" firstAttribute="leading" secondItem="TGA-ZD-LE3" secondAttribute="leading" constant="142" id="XGa-KF-l9X"/>
+                            <constraint firstItem="TGA-ZD-LE3" firstAttribute="trailing" secondItem="79X-Y8-iPS" secondAttribute="trailing" id="Zy9-tX-90p"/>
+                            <constraint firstItem="EoE-dj-OWe" firstAttribute="leading" secondItem="TGA-ZD-LE3" secondAttribute="leading" id="abv-SL-Q9n"/>
+                            <constraint firstItem="79X-Y8-iPS" firstAttribute="leading" secondItem="TGA-ZD-LE3" secondAttribute="leading" id="oU5-kB-4F8"/>
+                            <constraint firstItem="QfJ-f8-UxF" firstAttribute="leading" secondItem="TGA-ZD-LE3" secondAttribute="leading" constant="142" id="uzT-MS-MjZ"/>
+                            <constraint firstItem="79X-Y8-iPS" firstAttribute="centerX" secondItem="kIw-k0-do5" secondAttribute="centerX" id="x9F-Ic-rNs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TGA-ZD-LE3"/>
+                    </view>
+                    <connections>
+                        <outlet property="AntiAgingControl" destination="QfJ-f8-UxF" id="TF6-59-cjF"/>
+                        <outlet property="SensitiveSkinControl" destination="bax-hF-Qfd" id="WvP-Jr-F5L"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Feg-zi-ZmX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1713.0434782608697" y="845.75892857142856"/>
         </scene>
     </scenes>
 </document>

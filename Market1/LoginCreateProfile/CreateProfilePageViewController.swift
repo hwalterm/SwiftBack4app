@@ -15,7 +15,10 @@ class CreateProfilePageViewController: UIPageViewController, UIPageViewControlle
 
    lazy var orderedViewControllers: [UIViewController] = {
         return [self.newVc(viewController: "CreateProfileSkinTypeViewController"),
-                self.newVc(viewController: "CreateProfileAcneViewController")]
+                self.newVc(viewController: "CreateProfileAcneViewController"),
+                self.newVc(viewController: "CreateProfileSensitiveViewController")
+    
+    ]
     }()
 
     var pageControl = UIPageControl()
@@ -113,6 +116,11 @@ class CreateProfilePageViewController: UIPageViewController, UIPageViewControlle
            guard orderedViewControllersCount > nextIndex else {
                return nil
            }
+    
+        if let SensitiveView = orderedViewControllers[nextIndex]  as? CreateProfileSensitiveViewController {
+            SensitiveView.currprofile = self.currentprofile
+            return SensitiveView
+        }
            
            return orderedViewControllers[nextIndex]
        }
@@ -132,6 +140,13 @@ class CreateProfilePageViewController: UIPageViewController, UIPageViewControlle
         else if let AcneTypeView = previousViewControllers[previousViewControllers.count-1]  as? CreateProfileAcneViewController {
             self.currentprofile.acneProne = AcneTypeView.Acneselection
                 }
+        else if let SensitiveView = previousViewControllers[previousViewControllers.count-1]  as? CreateProfileSensitiveViewController {
+            self.currentprofile.antiAging = SensitiveView.antiaging
+            self.currentprofile.sensitiveSkin = SensitiveView.sensitiveskin
+            }
+        
+        
+        
         
     }
     
@@ -146,4 +161,5 @@ class CreateProfilePageViewController: UIPageViewController, UIPageViewControlle
         self.pageControl.currentPageIndicatorTintColor = UIColor.black
         self.view.addSubview(pageControl)
     }
+    
 }
