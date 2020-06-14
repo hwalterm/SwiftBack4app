@@ -57,20 +57,31 @@ class UserProfile {
     }
     
     
-    func save() {
+    func save(navigatetohome:Bool?) {
         profile["SkinType"] = self.SkinType
         profile["EyeColor"] = self.eyeColor
+        profile["AntiAging"] = self.antiAging
+        profile["AcneProne"] = self.acneProne
+        profile["SensitiveSkin"] = self.sensitiveSkin
+        
         guard let currentViewController = UIApplication.shared.keyWindow?.topMostViewController() else {
             return
         }
+        let sv = UIViewController.displaySpinner(onView: currentViewController.view)
      
         profile.saveInBackground { (success, error) in
+            UIViewController.removeSpinner(spinner: sv)
             
             if (success){
-                let alert = UIAlertController(title: "Saved!", message: "", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-                currentViewController.present(alert, animated: true)
                 
+                if (navigatetohome ?? false){
+                    self.loadHomeScreen()
+                }
+                else{
+                    let alert = UIAlertController(title: "Saved!", message: "", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                    currentViewController.present(alert, animated: true)
+                }
                 
                 
             }
@@ -84,6 +95,8 @@ class UserProfile {
             }
         }
     }
+        
+        
 }
         
         
@@ -121,6 +134,15 @@ class UserProfile {
 //    }
     
  
-     
+     func loadHomeScreen(){
+        guard let currentViewController = UIApplication.shared.keyWindow?.topMostViewController() else {
+            return
+        }
+         
+         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+         let HomeViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+         HomeViewController.modalPresentationStyle = .fullScreen
+         currentViewController.present(HomeViewController, animated: true, completion: nil)
+     }
     
 }

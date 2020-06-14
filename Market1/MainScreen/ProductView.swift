@@ -16,6 +16,7 @@ class ProductView: UIView {
     required override init(frame: CGRect){
         Product = ""
         super.init(frame: frame)
+        super.layer.cornerRadius = 8
         //var myFrame : CGRect = frame
         
         
@@ -27,6 +28,7 @@ class ProductView: UIView {
     required init?(coder: NSCoder) {
         Product = ""
         super.init(coder: coder)
+        super.layer.cornerRadius = 8
     }
     
     func setupProductView(){

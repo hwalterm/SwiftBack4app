@@ -12,14 +12,19 @@ import Parse
 class MainScrollView: UIScrollView {
     var products: [PFObject]
     var productquery: PFQuery<PFObject>
+    let curruser = PFUser.current()!
+    let profile:PFObject
     
     required override init(frame: CGRect){
-        self.productquery = PFQuery(className:"Products")
+        self.profile = self.curruser["Profile"] as! PFObject
+        let relation = profile.relation(forKey: "Products")
+        self.productquery = relation.query()
         products = [PFObject(className:"Products")]
         //Products = []
         super.init(frame: frame)
         super.isPagingEnabled = true
         super.backgroundColor = .orange
+        super.layer.cornerRadius = 8
     
         getProductList(query: productquery)
         setupPages()
@@ -28,12 +33,35 @@ class MainScrollView: UIScrollView {
         
         
     }
+    init (frame: CGRect, ProductType: String){
+        self.profile = self.curruser["Profile"] as! PFObject
+        let relation = profile.relation(forKey: "Products")
+        self.productquery = relation.query()
+        products = [PFObject(className:"Products")]
+            //Products = []
+        super.init(frame: frame)
+        super.isPagingEnabled = true
+        super.backgroundColor = .orange
+        super.layer.cornerRadius = 8
+        
+            getProductList(query: productquery)
+            setupPages()
+        
+    }
     
     required init?(coder: NSCoder) {
+        self.profile = self.curruser["Profile"] as! PFObject
         products = [PFObject(className:"Products")]
-        self.productquery = PFQuery(className:"Products")
-
+        let relation = profile.relation(forKey: "Products")
+        self.productquery = relation.query()
         super.init(coder: coder)
+        super.isPagingEnabled = true
+        super.backgroundColor = .orange
+        super.layer.cornerRadius = 8
+        getProductList(query: productquery)
+        setupPages()
+
+        
     }
     func getProductList(query: PFQuery<PFObject>) {
         

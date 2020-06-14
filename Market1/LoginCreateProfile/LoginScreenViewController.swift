@@ -29,7 +29,8 @@ class LoginScreenViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         let currentUser = PFUser.current()
         if currentUser != nil {
-            //loadHomeScreen()
+            //comment out below if you don't want to go directly to home screen
+            loadHomeScreen()
         }
     }
     

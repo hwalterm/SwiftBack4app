@@ -104,7 +104,7 @@ class ProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         self.currprofile?.eyeColor = EyeColorPicker.selectedRow(inComponent: 0)
         self.currprofile?.SkinType = SkinTypePicker.selectedRow(inComponent: 0)
-        currprofile?.save()
+        currprofile?.save(navigatetohome: false)
        
         
         

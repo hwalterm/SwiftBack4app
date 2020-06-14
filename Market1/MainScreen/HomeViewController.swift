@@ -12,6 +12,10 @@ import Parse
 class HomeViewController: UIViewController  {
     //MARK: Properties
     
+    @IBOutlet weak var FilterViewButton: UIButton!
+    
+    
+    
     var titleLabel: UILabel {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -148,7 +152,19 @@ class HomeViewController: UIViewController  {
         loadProfileScreen()
     }
     
+    
+    
+    @IBAction func FilterButtonClick(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let FilterVC = storyBoard.instantiateViewController(withIdentifier: "FilterView")
+        FilterVC.modalPresentationStyle = .popover
+    
+        
+        self.present(FilterVC,animated:true, completion: nil)
+    
 
+    }
+    
 
 
 //MARK: Setup views
@@ -156,21 +172,27 @@ class HomeViewController: UIViewController  {
     
     private func setupViews() {
         print("setting up view")
-        VerticalscrollView.backgroundColor = UIColor(displayP3Red:1, green: 0, blue: 0.15, alpha: 0.3)
+        VerticalscrollView.backgroundColor = UIColor(displayP3Red:1, green: (220/255), blue: (239/255), alpha: 1)
         VerticalscrollView.addSubview(contentView)
         contentView.addSubview(VerticalstackView)
         VerticalstackView.alignment = .center
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        let screenHeight = screenSize.height
         
         
-         for i in 0...5 {
-             let ProductscrollView : MainScrollView = MainScrollView(frame: CGRect(x: 0, y: 0,width: 400, height: 300))
+        let minimumdim = min(screenWidth, screenHeight) - 10
+        let Categories = ["Foundation"]
+        
+         for i in Categories {
+            let ProductscrollView : MainScrollView = MainScrollView(frame: CGRect(x: 0, y: 0,width: minimumdim, height: minimumdim * 0.75))
              ProductscrollView.translatesAutoresizingMaskIntoConstraints = false
              ProductscrollView.backgroundColor = .darkGray
              VerticalstackView.addArrangedSubview(ProductscrollView)
              
 
-         let widthConstraint = NSLayoutConstraint(item: ProductscrollView, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 400)
-         let heightConstraint = NSLayoutConstraint(item: ProductscrollView, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 300 )
+         let widthConstraint = NSLayoutConstraint(item: ProductscrollView, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: minimumdim)
+         let heightConstraint = NSLayoutConstraint(item: ProductscrollView, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: minimumdim * 0.75 )
 
              VerticalstackView.addConstraints([heightConstraint,widthConstraint])
 

@@ -45,11 +45,15 @@ class CreateProfileSensitiveViewController: UIViewController {
         
         currprofile.sensitiveSkin = self.sensitiveskin
         currprofile.antiAging = self.antiaging
+        currprofile.save(navigatetohome: true)
         print("skin type: " + String(currprofile.SkinType))
     }
     
-    /*
+   
     // MARK: - Navigation
+     
+     
+     /*
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -57,5 +61,15 @@ class CreateProfileSensitiveViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    //MARK: Save data
+//    func SaveProfile() {
+//        let user = PFUser.current()!
+//        let p = user["Profile"] as! PFObject
+//
+//
+//    }
+//
+    
 
 }

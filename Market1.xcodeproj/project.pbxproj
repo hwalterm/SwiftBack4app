@@ -21,6 +21,7 @@
 		0250A0F924202734000ECE5E /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0250A0F824202734000ECE5E /* UserProfile.swift */; };
 		0269AAA2244B9E3700FA4DB8 /* ProfileCreation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0269AAA1244B9E3700FA4DB8 /* ProfileCreation.storyboard */; };
 		0269AAA5244BA07900FA4DB8 /* CreateProfileSkinTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269AAA4244BA07900FA4DB8 /* CreateProfileSkinTypeViewController.swift */; };
+		0270064C24966EFC006A6404 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0270064B24966EFC006A6404 /* FilterViewController.swift */; };
 		027515FF24465B4700AA322A /* topMostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027515FE24465B4600AA322A /* topMostViewController.swift */; };
 		0287FAB8240611340078099C /* getUser.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 0287FAB7240611340078099C /* getUser.graphql */; };
 		02D67E3A23B58F3500E9D443 /* LoginScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D67E3923B58F3500E9D443 /* LoginScreenViewController.swift */; };
@@ -72,6 +73,7 @@
 		0250A0F824202734000ECE5E /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		0269AAA1244B9E3700FA4DB8 /* ProfileCreation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileCreation.storyboard; sourceTree = "<group>"; };
 		0269AAA4244BA07900FA4DB8 /* CreateProfileSkinTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileSkinTypeViewController.swift; sourceTree = "<group>"; };
+		0270064B24966EFC006A6404 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		027515FE24465B4600AA322A /* topMostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = topMostViewController.swift; path = /Users/hershelalterman/Projects/Market1/Market1/topMostViewController.swift; sourceTree = "<absolute>"; };
 		0287FAB7240611340078099C /* getUser.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = getUser.graphql; sourceTree = "<group>"; };
 		02D67E3923B58F3500E9D443 /* LoginScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				0238DD1723B3F3E10037A8BE /* HomeViewController.swift */,
 				0239B2FD24097E4A00A89EA7 /* MainScrollView.swift */,
 				0239B2FF2409CA4A00A89EA7 /* ProductView.swift */,
+				0270064B24966EFC006A6404 /* FilterViewController.swift */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				027515FF24465B4700AA322A /* topMostViewController.swift in Sources */,
 				0217E3BA2451E40000A4AA4D /* CreateProfileSensitiveViewController.swift in Sources */,
 				02D67E3A23B58F3500E9D443 /* LoginScreenViewController.swift in Sources */,
+				0270064C24966EFC006A6404 /* FilterViewController.swift in Sources */,
 				0239B2FE24097E4A00A89EA7 /* MainScrollView.swift in Sources */,
 				02FD4178244CF6E900AFE74C /* CreateProfilePageViewController.swift in Sources */,
 				02FD417A244CFE7000AFE74C /* CreateProfileAcneViewController.swift in Sources */,
