@@ -13,7 +13,10 @@ class HomeViewController: UIViewController  {
     //MARK: Properties
     
     @IBOutlet weak var FilterViewButton: UIButton!
-    var Categories = ["Foundation", "Masacara"]
+    var Categories = ["Foundation", "Mascara"]
+    
+    
+
     
     
     
@@ -157,8 +160,9 @@ class HomeViewController: UIViewController  {
     
     @IBAction func FilterButtonClick(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let FilterVC = storyBoard.instantiateViewController(withIdentifier: "FilterView")
+        let FilterVC = storyBoard.instantiateViewController(withIdentifier: "FilterView") as! FilterViewController
         FilterVC.modalPresentationStyle = .popover
+        FilterVC.filterDelegate = self
     
         
         self.present(FilterVC,animated:true, completion: nil)
@@ -170,13 +174,7 @@ class HomeViewController: UIViewController  {
 
 //MARK: Setup views
     
-    
-    private func setupViews() {
-        print("setting up view")
-        VerticalscrollView.backgroundColor = UIColor(displayP3Red:1, green: (220/255), blue: (239/255), alpha: 1)
-        VerticalscrollView.addSubview(contentView)
-        contentView.addSubview(VerticalstackView)
-        VerticalstackView.alignment = .center
+    private func addProductScrollView(){
         let screenSize = UIScreen.main.bounds
         let screenWidth = screenSize.width
         let screenHeight = screenSize.height
@@ -185,7 +183,7 @@ class HomeViewController: UIViewController  {
         let minimumdim = min(screenWidth, screenHeight) - 10
         //let Categories = self.Categories
         
-         for productype in Categories {
+        for productype in self.Categories {
             let ProductscrollView : MainScrollView = MainScrollView(frame: CGRect(x: 0, y: 0,width: minimumdim, height: minimumdim * 0.75), ProductType: productype)
             //let ProductscrollView : MainScrollView = MainScrollView(frame: CGRect(x: 0, y: 0,width: minimumdim, height: minimumdim * 0.75))
              ProductscrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -199,6 +197,26 @@ class HomeViewController: UIViewController  {
              VerticalstackView.addConstraints([heightConstraint,widthConstraint])
 
         }
+    }
+    
+    private func removeProductScrollView(){
+        for productscrollview in VerticalstackView.subviews {
+            VerticalstackView.removeArrangedSubview(productscrollview)
+        }
+        
+        
+    }
+    
+    
+    private func setupViews() {
+        print("setting up view")
+        VerticalscrollView.backgroundColor = UIColor(displayP3Red:1, green: (220/255), blue: (239/255), alpha: 1)
+        VerticalscrollView.addSubview(contentView)
+        contentView.addSubview(VerticalstackView)
+        VerticalstackView.alignment = .center
+        
+        addProductScrollView()
+
         
         
         
@@ -244,9 +262,19 @@ class HomeViewController: UIViewController  {
 
 extension HomeViewController: FilterSelectionDelegate{
     func didSelectFilters (filteritems: [String]){
-        
+        for i in filteritems{
+            print("Filter on: " + i)
+        }
         self.Categories = filteritems
-        setupViews()
+        //self.VerticalscrollView.removeFromSuperview()
+        self.VerticalscrollView = {
+            let freshview = UIScrollView()
+            freshview.translatesAutoresizingMaskIntoConstraints = false
+            return freshview
+        }()
+        removeProductScrollView()
+//        setupViews()
+//        setupLayout()
         
     }
     

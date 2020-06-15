@@ -47,7 +47,7 @@ class MainScrollView: UIScrollView {
         self.productquery = PFQuery(className: "UserProductJoin")
         
         //add product type constraint
-        let innerProductQuery = PFQuery(className: "Product")
+        let innerProductQuery = PFQuery(className: "Products")
         innerProductQuery.whereKey("ProductType", equalTo: ProductType)
         print(ProductType)
         productquery.whereKey("Product", matchesQuery: innerProductQuery)
