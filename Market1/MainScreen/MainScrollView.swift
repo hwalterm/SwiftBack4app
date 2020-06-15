@@ -13,6 +13,7 @@ import Parse
 //Retrieve products from database and add to scroll view
 class MainScrollView: UIScrollView {
     var relations: [PFObject]
+    var producttype: String = ""
     var productquery: PFQuery<PFObject>
     let curruser = PFUser.current()!
     let profile:PFObject
@@ -38,6 +39,8 @@ class MainScrollView: UIScrollView {
         
     }
     init (frame: CGRect, ProductType: String){
+        self.relations = [PFObject(className:"UserProductJoin")]
+        self.producttype = ProductType
         
         self.profile = self.curruser["Profile"] as! PFObject
         //set up product query
@@ -46,9 +49,13 @@ class MainScrollView: UIScrollView {
         //add product type constraint
         let innerProductQuery = PFQuery(className: "Product")
         innerProductQuery.whereKey("ProductType", equalTo: ProductType)
-    
-        relations = [PFObject(className:"UserProductJoin")]
+        print(ProductType)
+        productquery.whereKey("Product", matchesQuery: innerProductQuery)
+        
+        
         productquery.order(byDescending: "MatchNumber")
+        
+        //include related products when retrieving the relations
         productquery.includeKey("Product")
             //Products = []
         super.init(frame: frame)
@@ -131,6 +138,15 @@ class MainScrollView: UIScrollView {
         //let colors = [UIColor.blue, UIColor.green,UIColor.purple, UIColor.yellow]
         var x : CGFloat = 0
         
+        //add title card for different sections
+//        let titlecard: ProductView = ProductView(frame: CGRect(x: x + padding, y: padding, width: viewWidth, height: viewHeight) )
+//        titlecard.addCategorylabel(categoryName: self.producttype)
+//        self.addSubview(titlecard)
+//        x = titlecard.frame.origin.x + viewWidth + padding
+//        super.contentSize = CGSize(width:x+padding, height: super.frame.size.height)
+        
+
+        
         for p in relations{
             
             let product = p["Product"] as? PFObject
@@ -152,20 +168,10 @@ class MainScrollView: UIScrollView {
             
         }
         
-        
-        
-        
-        
-        
-        
-        
-        /*
-         // Only override draw() if you perform custom drawing.
-         // An empty implementation adversely affects performance during animation.
-         override func draw(_ rect: CGRect) {
-         // Drawing code
-         }
-         */
-        
     }
+    
+    
+    
+    
+
 }

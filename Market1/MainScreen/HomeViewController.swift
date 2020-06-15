@@ -183,10 +183,11 @@ class HomeViewController: UIViewController  {
         
         
         let minimumdim = min(screenWidth, screenHeight) - 10
-        let Categories = self.Categories
+        //let Categories = self.Categories
         
-         for i in Categories {
-            let ProductscrollView : MainScrollView = MainScrollView(frame: CGRect(x: 0, y: 0,width: minimumdim, height: minimumdim * 0.75))
+         for productype in Categories {
+            let ProductscrollView : MainScrollView = MainScrollView(frame: CGRect(x: 0, y: 0,width: minimumdim, height: minimumdim * 0.75), ProductType: productype)
+            //let ProductscrollView : MainScrollView = MainScrollView(frame: CGRect(x: 0, y: 0,width: minimumdim, height: minimumdim * 0.75))
              ProductscrollView.translatesAutoresizingMaskIntoConstraints = false
              ProductscrollView.backgroundColor = .darkGray
              VerticalstackView.addArrangedSubview(ProductscrollView)

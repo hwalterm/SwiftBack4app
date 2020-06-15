@@ -40,6 +40,17 @@ class ProductView: UIView {
         
     }
     
+    func addCategorylabel(categoryName: String){
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: frame.width, height: 40))
+        label.font = UIFont(name: "Chalkduster", size: 34)
+        label.text = categoryName
+        label.textAlignment = .center
+        self.backgroundColor = .systemTeal
+        
+        self.addSubview(label)
+        
+    }
+    
 //    init(frame: CGRect , product: String){
 //    
 //        
