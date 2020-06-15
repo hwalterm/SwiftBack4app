@@ -9,17 +9,21 @@
 import UIKit
 import Parse
 
+
+//Retrieve products from database and add to scroll view
 class MainScrollView: UIScrollView {
-    var products: [PFObject]
+    var relations: [PFObject]
     var productquery: PFQuery<PFObject>
     let curruser = PFUser.current()!
     let profile:PFObject
     
     required override init(frame: CGRect){
         self.profile = self.curruser["Profile"] as! PFObject
-        let relation = profile.relation(forKey: "Products")
-        self.productquery = relation.query()
-        products = [PFObject(className:"Products")]
+        
+        self.productquery = PFQuery(className: "UserProductJoin")
+        relations = [PFObject(className:"UserProductJoin")]
+        productquery.order(byDescending: "MatchNumber")
+        productquery.includeKey("Product")
         //Products = []
         super.init(frame: frame)
         super.isPagingEnabled = true
@@ -34,10 +38,18 @@ class MainScrollView: UIScrollView {
         
     }
     init (frame: CGRect, ProductType: String){
+        
         self.profile = self.curruser["Profile"] as! PFObject
-        let relation = profile.relation(forKey: "Products")
-        self.productquery = relation.query()
-        products = [PFObject(className:"Products")]
+        //set up product query
+        self.productquery = PFQuery(className: "UserProductJoin")
+        
+        //add product type constraint
+        let innerProductQuery = PFQuery(className: "Product")
+        innerProductQuery.whereKey("ProductType", equalTo: ProductType)
+    
+        relations = [PFObject(className:"UserProductJoin")]
+        productquery.order(byDescending: "MatchNumber")
+        productquery.includeKey("Product")
             //Products = []
         super.init(frame: frame)
         super.isPagingEnabled = true
@@ -51,9 +63,14 @@ class MainScrollView: UIScrollView {
     
     required init?(coder: NSCoder) {
         self.profile = self.curruser["Profile"] as! PFObject
-        products = [PFObject(className:"Products")]
-        let relation = profile.relation(forKey: "Products")
-        self.productquery = relation.query()
+        
+        //Set up query for desired products
+        self.productquery = PFQuery(className: "UserProductJoin")
+        
+        
+        productquery.order(byDescending: "MatchNumber")
+        productquery.includeKey("Product")
+        relations = [PFObject(className:"UserProductJoin")]
         super.init(coder: coder)
         super.isPagingEnabled = true
         super.backgroundColor = .orange
@@ -63,6 +80,8 @@ class MainScrollView: UIScrollView {
 
         
     }
+    
+    //Retrieve products from database
     func getProductList(query: PFQuery<PFObject>) {
         
         let sv = UIViewController.displaySpinner(onView: self)
@@ -77,9 +96,13 @@ class MainScrollView: UIScrollView {
                 print("Successfully retrieved \(objects.count) Products.")
                 // Do something with the found objects
                 for object in objects {
+                    
+                    //print("OBJECT: ")
                     print(object.objectId as Any)
+                    let pr = object["Product"] as? PFObject
+                    //print(pr as Any)
                 }
-                self.products = objects
+                self.relations = objects
                
             
             }
@@ -97,7 +120,8 @@ class MainScrollView: UIScrollView {
         
         //Products = ["Item1", "Item2", "Item3", "Item4"]
     
-        var numberOfPages :Int = products.count-1
+        var numberOfPages :Int = relations.count-1
+     
         let pagestring : String = ""
         let padding : CGFloat = 3
         let viewWidth = self.frame.size.width - 2 * padding
@@ -107,10 +131,15 @@ class MainScrollView: UIScrollView {
         //let colors = [UIColor.blue, UIColor.green,UIColor.purple, UIColor.yellow]
         var x : CGFloat = 0
         
-        for p in products{
+        for p in relations{
+            
+            let product = p["Product"] as? PFObject
+            
             let view: ProductView = ProductView(frame: CGRect(x: x + padding, y: padding, width: viewWidth, height: viewHeight) )
+            
+            //view.Product = "Testtest"
         
-            view.Product = p["ProductName"] as? String ?? pagestring
+            view.Product = product?["ProductName"] as? String ?? pagestring
             
             view.backgroundColor = UIColor.white
             view.setupProductView()

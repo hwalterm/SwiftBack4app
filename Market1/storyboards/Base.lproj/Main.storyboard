@@ -28,6 +28,9 @@
                                     <constraint firstAttribute="height" constant="30" id="qX1-uc-oBn"/>
                                 </constraints>
                                 <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="DoneButton:" destination="wVe-ae-BO8" eventType="touchUpInside" id="CAZ-Zx-LY9"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Foundation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOG-SE-jYM">
                                 <rect key="frame" x="62" y="123" width="86" height="21"/>

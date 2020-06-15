@@ -8,12 +8,25 @@
 
 import UIKit
 
+protocol FilterSelectionDelegate {
+    func didSelectFilters (filteritems: [String])
+}
+
+
 class FilterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    // MARK: - ACTIONS
+    
+    
+    @IBAction func DoneButton(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
     }
     
 

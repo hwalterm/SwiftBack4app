@@ -13,6 +13,7 @@ class HomeViewController: UIViewController  {
     //MARK: Properties
     
     @IBOutlet weak var FilterViewButton: UIButton!
+    var Categories = ["Foundation", "Masacara"]
     
     
     
@@ -182,7 +183,7 @@ class HomeViewController: UIViewController  {
         
         
         let minimumdim = min(screenWidth, screenHeight) - 10
-        let Categories = ["Foundation"]
+        let Categories = self.Categories
         
          for i in Categories {
             let ProductscrollView : MainScrollView = MainScrollView(frame: CGRect(x: 0, y: 0,width: minimumdim, height: minimumdim * 0.75))
@@ -238,6 +239,16 @@ class HomeViewController: UIViewController  {
     }
 
 
+}
+
+extension HomeViewController: FilterSelectionDelegate{
+    func didSelectFilters (filteritems: [String]){
+        
+        self.Categories = filteritems
+        setupViews()
+        
+    }
+    
 }
 
 
