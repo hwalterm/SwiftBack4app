@@ -55,6 +55,18 @@ class UserProfile {
 
 
     }
+    func UpdateUserProducts(){
+
+        if let objid = self.profile.objectId{
+            PFCloud.callFunction(inBackground: "UpdateUserProducts", withParameters: ["UserProfile": objid] ) {
+                   (response, error) in
+              
+            
+               }
+            
+        }
+        
+    }
     
     
     func save(navigatetohome:Bool?) {
@@ -78,15 +90,13 @@ class UserProfile {
             if (success){
                 
                 if (navigatetohome ?? false){
+                    self.UpdateUserProducts()
                     
-                    PFCloud.callFunction(inBackground: "UpdateUserProducts", withParameters: ["UserProfile": self.profile.objectId]) {
-                        (response, error) in
-                   
-                 
-                    }
+                    
                     self.loadHomeScreen()
                 }
                 else{
+                    self.UpdateUserProducts()
                     let alert = UIAlertController(title: "Saved!", message: "", preferredStyle: UIAlertController.Style.alert)
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
                     currentViewController.present(alert, animated: true)
