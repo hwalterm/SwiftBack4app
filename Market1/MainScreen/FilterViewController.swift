@@ -12,12 +12,13 @@ import UIKit
 
 protocol FilterSelectionDelegate {
    
-    func didSelectFilters (filteritems: [String])
+    func didSelectFilters (filteritems: [String], togglestates: Dictionary<String, Bool>)
 }
 
 
 class FilterViewController: UIViewController {
     
+    var togglestates: Dictionary<String, Bool> = [:]
     var filterDelegate: FilterSelectionDelegate!
     @IBOutlet weak var MascaraToggle: UIButton!
     @IBOutlet weak var FoundationToggle: UIButton!
@@ -25,6 +26,10 @@ class FilterViewController: UIViewController {
     override func viewDidLoad() {
         self.view.backgroundColor = UIColor(displayP3Red:1, green: (220/255), blue: (239/255), alpha: 1)
         super.viewDidLoad()
+        
+        MascaraToggle.isSelected = togglestates["Mascara"]!
+        FoundationToggle.isSelected = togglestates["Foundation"]!
+        
 
         // Do any additional setup after loading the view.
     }
@@ -33,10 +38,13 @@ class FilterViewController: UIViewController {
     
     @IBAction func FoundationToggle(_ sender: UIButton) {
         sender.isSelected.toggle()
+        togglestates["Foundation"] = sender.isSelected
+        
     }
     
     @IBAction func MascaraToggle(_ sender: UIButton) {
         sender.isSelected.toggle()
+        togglestates["Mascara"] = sender.isSelected
     }
     
     
@@ -53,9 +61,9 @@ class FilterViewController: UIViewController {
         }
         
         if ((filterDelegate) != nil){
-            filterDelegate.didSelectFilters(filteritems: selectedFields)}
+            filterDelegate.didSelectFilters(filteritems: selectedFields, togglestates: self.togglestates)}
         else{
-            print("No Filter delegate ")
+            print("Error Missing Filter delegate ")
         }
         
         

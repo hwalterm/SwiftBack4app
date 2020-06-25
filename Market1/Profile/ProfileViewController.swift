@@ -35,12 +35,14 @@ class ProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         UsernameLabel.text = PFUser.current()?.username
 
         // Do any additional setup after loading the view.
-        if PFUser.current() != nil {
+        if self.currprofile != nil {
             //let currProfile = UserProfile(user: PFUser.current()!)
             print("curr profile.skintype" + String(currprofile!.SkinType))
         
-            
-            
+        }
+        
+        else{
+            print("No User PRofile")
         }
     }
     
@@ -63,7 +65,8 @@ class ProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     func loadLoginScreen(){
           let storyBoard: UIStoryboard = UIStoryboard(name: "ProfileCreation", bundle: nil)
           let viewController = storyBoard.instantiateViewController(withIdentifier: "LoginScreenViewController") as! LoginScreenViewController
-          self.present(viewController, animated: true, completion: nil)
+        viewController.modalPresentationStyle = .fullScreen
+        self.present(viewController, animated: true, completion: nil)
       }
     
     
@@ -117,6 +120,7 @@ class ProfileViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
               PFUser.logOutInBackground { (error: Error?) in
                   UIViewController.removeSpinner(spinner: sv)
                   if (error == nil){
+                      print("Logout successful")
                       self.loadLoginScreen()
                   }else{
                       if let descrip = error?.localizedDescription{

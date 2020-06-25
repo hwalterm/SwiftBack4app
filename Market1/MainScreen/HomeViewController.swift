@@ -13,12 +13,12 @@ class HomeViewController: UIViewController  {
     //MARK: Properties
     
     @IBOutlet weak var FilterViewButton: UIButton!
-    var Categories = ["Foundation", "Mascara"]
+    var Categories = ["Mascara", "Foundation"]
     
     
 
     
-    
+    var togglestates: Dictionary <String, Bool> = [:]
     
     var titleLabel: UILabel {
         let label = UILabel()
@@ -54,10 +54,20 @@ class HomeViewController: UIViewController  {
     
     
     override func viewDidLoad() {
+        
       
         super.viewDidLoad()
+        //initialize all filter buttons
+        for cat in Categories{
+            togglestates[cat] = true
+        }
+        
         setupViews()
         setupLayout()
+        
+        //initialize results to unfiltered
+        
+        
         
         
         
@@ -163,6 +173,7 @@ class HomeViewController: UIViewController  {
         let FilterVC = storyBoard.instantiateViewController(withIdentifier: "FilterView") as! FilterViewController
         FilterVC.modalPresentationStyle = .popover
         FilterVC.filterDelegate = self
+        FilterVC.togglestates = self.togglestates
     
         
         self.present(FilterVC,animated:true, completion: nil)
@@ -201,7 +212,7 @@ class HomeViewController: UIViewController  {
     
     private func removeProductScrollView(){
         for productscrollview in VerticalstackView.subviews {
-            VerticalstackView.removeArrangedSubview(productscrollview)
+            productscrollview.removeFromSuperview()
         }
         
         
@@ -261,20 +272,18 @@ class HomeViewController: UIViewController  {
 }
 
 extension HomeViewController: FilterSelectionDelegate{
-    func didSelectFilters (filteritems: [String]){
+    func didSelectFilters (filteritems: [String], togglestates: Dictionary<String, Bool>){
         for i in filteritems{
             print("Filter on: " + i)
         }
         self.Categories = filteritems
+        self.togglestates = togglestates
         //self.VerticalscrollView.removeFromSuperview()
-        self.VerticalscrollView = {
-            let freshview = UIScrollView()
-            freshview.translatesAutoresizingMaskIntoConstraints = false
-            return freshview
-        }()
+     
         removeProductScrollView()
+        addProductScrollView()
 //        setupViews()
-//        setupLayout()
+        setupLayout()
         
     }
     

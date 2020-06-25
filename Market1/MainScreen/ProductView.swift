@@ -7,17 +7,22 @@
 //
 
 import UIKit
+import Parse
+
 
 class ProductView: UIView {
-    var Product: String
-    
+    var ProductString: String
+    var imageview: UIImageView?
+    var imageFile: PFFileObject?
+    var Product: PFObject?
     
     
     required override init(frame: CGRect){
-        Product = ""
+        ProductString = "No Products Founds"
         super.init(frame: frame)
         super.layer.cornerRadius = 8
         //var myFrame : CGRect = frame
+    
         
         
         
@@ -26,17 +31,20 @@ class ProductView: UIView {
     }
     
     required init?(coder: NSCoder) {
-        Product = ""
+        ProductString = "No Products Found"
         super.init(coder: coder)
         super.layer.cornerRadius = 8
+      
     }
     
     func setupProductView(){
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: frame.width, height: 30))
-        label.text = Product
+        label.text = ProductString
         label.textAlignment = .center
         
         self.addSubview(label)
+        
+       
         
     }
     
@@ -49,6 +57,25 @@ class ProductView: UIView {
         
         self.addSubview(label)
         
+    }
+    
+    func addProductImage(){
+        
+        if let userImageFile = Product!["image"] as? PFFileObject{
+            userImageFile.getDataInBackground { (imageData: Data?, error: Error?) in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else if let imageData = imageData {
+                    let productImage = UIImage(data:imageData)
+                    self.imageview = UIImageView(image: productImage)
+                    
+                    self.addSubview(self.imageview!)
+                    self.imageview!.frame = CGRect(x: self.frame.midX + 30 - (self.frame.width / 2), y: self.frame.midY + 30 - (self.frame.height / 2), width: self.frame.width - 60, height: self.frame.height - 60)
+                    
+                
+                }
+            }
+        }
     }
     
 //    init(frame: CGRect , product: String){

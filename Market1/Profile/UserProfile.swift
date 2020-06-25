@@ -64,6 +64,9 @@ class UserProfile {
         profile["AcneProne"] = self.acneProne
         profile["SensitiveSkin"] = self.sensitiveSkin
         
+
+
+        
         guard let currentViewController = UIApplication.shared.keyWindow?.topMostViewController() else {
             return
         }
@@ -75,6 +78,12 @@ class UserProfile {
             if (success){
                 
                 if (navigatetohome ?? false){
+                    
+                    PFCloud.callFunction(inBackground: "UpdateUserProducts", withParameters: ["UserProfile": self.profile.objectId]) {
+                        (response, error) in
+                   
+                 
+                    }
                     self.loadHomeScreen()
                 }
                 else{

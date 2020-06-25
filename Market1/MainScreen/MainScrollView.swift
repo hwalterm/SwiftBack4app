@@ -30,7 +30,7 @@ class MainScrollView: UIScrollView {
         super.isPagingEnabled = true
         super.backgroundColor = .orange
         super.layer.cornerRadius = 8
-    
+        
         getProductList(query: productquery)
         setupPages()
         
@@ -51,20 +51,21 @@ class MainScrollView: UIScrollView {
         innerProductQuery.whereKey("ProductType", equalTo: ProductType)
         print(ProductType)
         productquery.whereKey("Product", matchesQuery: innerProductQuery)
+        productquery.whereKey("UserProfile", equalTo: profile)
         
         
         productquery.order(byDescending: "MatchNumber")
         
         //include related products when retrieving the relations
         productquery.includeKey("Product")
-            //Products = []
+        //Products = []
         super.init(frame: frame)
         super.isPagingEnabled = true
         super.backgroundColor = .orange
         super.layer.cornerRadius = 8
         
-            getProductList(query: productquery)
-            setupPages()
+        getProductList(query: productquery)
+        setupPages()
         
     }
     
@@ -84,7 +85,7 @@ class MainScrollView: UIScrollView {
         super.layer.cornerRadius = 8
         getProductList(query: productquery)
         setupPages()
-
+        
         
     }
     
@@ -96,7 +97,7 @@ class MainScrollView: UIScrollView {
             if let error = error {
                 // Log details of the failure
                 print(error.localizedDescription)
-        
+                
                 
             } else if let objects = objects {
                 // The find succeeded.
@@ -110,25 +111,45 @@ class MainScrollView: UIScrollView {
                     //print(pr as Any)
                 }
                 self.relations = objects
-               
-            
+                
+                
             }
             UIViewController.removeSpinner(spinner: sv)
-        
+            
             self.setupPages()
-        
+            
         }
-     
+        
     }
     
+    func addDefaultPage(){
+        let pagestring : String = ""
+        let padding : CGFloat = 3
+        let viewWidth = self.frame.size.width - 2 * padding
+        let viewHeight = self.frame.size.height - 2 * padding
+        var x : CGFloat = 0
+        let view: ProductView = ProductView(frame: CGRect(x: x + padding, y: padding, width: viewWidth, height: viewHeight) )
+        
+        //view.Product = "Testtest"
+        
+        
+        view.backgroundColor = UIColor.lightGray
+        view.setupProductView()
+        //view.backgroundColor = colors[i]
+        self.addSubview(view)
+        
+        x = view.frame.origin.x + viewWidth + padding
+        
+        super.contentSize = CGSize(width:x+padding, height: super.frame.size.height)
+        
+    }
     
-    
-    func setupPages(){
+    func addProductPage(p: PFObject){
         
         //Products = ["Item1", "Item2", "Item3", "Item4"]
-    
+        
         var numberOfPages :Int = relations.count-1
-     
+        
         let pagestring : String = ""
         let padding : CGFloat = 3
         let viewWidth = self.frame.size.width - 2 * padding
@@ -137,34 +158,55 @@ class MainScrollView: UIScrollView {
         //For debug:
         //let colors = [UIColor.blue, UIColor.green,UIColor.purple, UIColor.yellow]
         var x : CGFloat = 0
+        let view: ProductView = ProductView(frame: CGRect(x: x + padding, y: padding, width: viewWidth, height: viewHeight) )
+        if let product = p["Product"] as? PFObject{
+            view.ProductString = product["ProductName"] as? String ?? pagestring
+            view.Product = product
+            view.addProductImage()
+            
+        }
         
-        //add title card for different sections
-//        let titlecard: ProductView = ProductView(frame: CGRect(x: x + padding, y: padding, width: viewWidth, height: viewHeight) )
-//        titlecard.addCategorylabel(categoryName: self.producttype)
-//        self.addSubview(titlecard)
-//        x = titlecard.frame.origin.x + viewWidth + padding
-//        super.contentSize = CGSize(width:x+padding, height: super.frame.size.height)
+        
+        
+        
+        
         
 
         
-        for p in relations{
-            
-            let product = p["Product"] as? PFObject
-            
-            let view: ProductView = ProductView(frame: CGRect(x: x + padding, y: padding, width: viewWidth, height: viewHeight) )
-            
-            //view.Product = "Testtest"
+        view.backgroundColor = UIColor.white
+        view.setupProductView()
+        //view.backgroundColor = colors[i]
+        self.addSubview(view)
         
-            view.Product = product?["ProductName"] as? String ?? pagestring
+        x = view.frame.origin.x + viewWidth + padding
+        
+        super.contentSize = CGSize(width:x+padding, height: super.frame.size.height)
+        
+    }
+    
+    func setupPages(){
+        
+        
+        
+        //add title card for different sections
+        //        let titlecard: ProductView = ProductView(frame: CGRect(x: x + padding, y: padding, width: viewWidth, height: viewHeight) )
+        //        titlecard.addCategorylabel(categoryName: self.producttype)
+        //        self.addSubview(titlecard)
+        //        x = titlecard.frame.origin.x + viewWidth + padding
+        //        super.contentSize = CGSize(width:x+padding, height: super.frame.size.height)
+        
+        if (relations.count <= 0){
+            addDefaultPage()
             
-            view.backgroundColor = UIColor.white
-            view.setupProductView()
-            //view.backgroundColor = colors[i]
-            self.addSubview(view)
             
-            x = view.frame.origin.x + viewWidth + padding
             
-            super.contentSize = CGSize(width:x+padding, height: super.frame.size.height)
+        }
+        
+        for item in relations{
+            
+            addProductPage(p: item)
+            
+            
             
         }
         
@@ -173,5 +215,5 @@ class MainScrollView: UIScrollView {
     
     
     
-
+    
 }
